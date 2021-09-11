@@ -53,13 +53,13 @@ ethernet _first_ {
 # }
 
 battery 0 {
-        format = "%status %percentage"
+        format = "%status%percentage"
         hide_seconds = true
         integer_battery_capacity = true
         last_full_capacity = true
         status_chr = " +"
-        status_bat = ""
-        status_full = ""
+        status_bat = " "
+        status_full = " "
 }
 
 disk "/" {
