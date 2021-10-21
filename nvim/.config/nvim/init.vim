@@ -1,5 +1,3 @@
-" vim-bootstrap 2021-09-10 03:32:08
-
 "*****************************************************************************
 "" Vim-Plug core
 "*****************************************************************************
@@ -29,21 +27,35 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "*****************************************************************************
 "" Plug install packages
 "*****************************************************************************
+Plug 'junegunn/fzf.vim'
 
+Plug 'BurntSushi/ripgrep'
 
 Plug 'ayu-theme/ayu-vim'
-set termguicolors     " enable true colors support
+Plug 'joshdick/onedark.vim'
+" set termguicolors     " enable true colors support
 let ayucolor="dark"   " for dark version of theme
 
 Plug 'wojciechkepka/vim-github-dark'
 Plug 'andweeb/presence.nvim'
-
-
+Plug 'karb94/neoscroll.nvim'
+" Plug 'vim-airline/vim-airline'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'vim-latex/vim-latex'
 call plug#end()
 
 " Required:
 filetype plugin indent on
 
+nnoremap <C-p> :Files<Cr>
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 "*****************************************************************************
 "" Basic Setup
@@ -82,5 +94,5 @@ set number
 set relativenumber
 set splitright splitbelow
 
+syntax on
 colorscheme ayu
-

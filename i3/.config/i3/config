@@ -65,8 +65,10 @@ bindsym $mod+Shift+9 move container to workspace 9
 #####################################################################################################################
 
 # start dmenu
-bindsym $mod+d exec --no-startup-id dmenu_run -i -nb '#0d1017' -nf '#e6b673' -sb '#e6b673' -sf '#0d1017' -fn 'SourceCodePro:bold:pixelsize=14'
+# bindsym $mod+d exec --no-startup-id dmenu_run -i -nb '#0d1017' -nf '#e6b673' -sb '#e6b673' -sf '#0d1017' -fn 'SourceCodePro:bold:pixelsize=14'
 
+exec /usr/bin/albert
+bindsym $mod+d exec albert toggle
 # start rofi full
 bindsym $mod+Shift+d exec --no-startup-id rofi -show drun -font "Source Code Pro 14"
 
@@ -256,8 +258,8 @@ mode "resize" {
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # choose your font
-#font pango:Noto Mono Regular 13
-font pango:Source Code Pro 0
+# font pango:JetBrains Mono
+font pango:JetBrains Mono Bold 9
 
 
 
@@ -337,11 +339,11 @@ popup_during_fullscreen smart
 #################                          i3 gaps next                                             #################
 #####################################################################################################################
 
-for_window [class="^.*"] border pixel 1
-gaps inner 0
-gaps outer 0
+# for_window [class="^.*"] border pixel 2
+# gaps inner 0
+gaps outer 12
 # smart_gaps on
-smart_borders on
+# smart_borders on
 # border_radius 2
 
 
@@ -438,15 +440,18 @@ bar {
 
     # Window color settings
     # class                 border  backgr. text    indicator
-    client.focused          #e6b673 #e6b673 #ffffff #e6b673
-    client.unfocused        #2e3440 #2e3440 #888888 #2e3440
-    client.focused_inactive #2e3440 #2e3440 #888888 #2e3440
-    client.placeholder      #2e3440 #2e3440 #888888 #2e3440
+    client.focused          #2e3440 #2e3440 #e6b673 #2e3440
+    client.unfocused        #2e3440 #1f222d #e6b673 #2e3440
+    client.focused_inactive #2e3440 #2e3440 #e6b673 #2e3440
+    client.placeholder      #2e3440 #2e3440 #e6b673 #2e3440
     client.urgent           #900000 #900000 #ffffff #900000
 
     client.background       #242424
 
     ##STOP THEMING WM
+
+# enable window icons for all windows with extra horizontal padding
+for_window [all] title_window_icon padding 10px
 
 #####################################################################################################################
 #####################################################################################################################
@@ -459,3 +464,5 @@ bar {
 #####################################################################################################################
 #####################################################################################################################
 #####################################################################################################################
+title_align center
+for_window [class=".*"] title_format "<b></b>"
