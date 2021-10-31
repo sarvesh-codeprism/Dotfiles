@@ -27,24 +27,19 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "*****************************************************************************
 "" Plug install packages
 "*****************************************************************************
+Plug 'ap/vim-css-color'
+Plug 'romgrk/doom-one.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf.vim'
-
+Plug 'jiangmiao/auto-pairs'
+Plug 'drewtempelmeyer/palenight.vim'
 Plug 'BurntSushi/ripgrep'
-
-Plug 'ayu-theme/ayu-vim'
-Plug 'joshdick/onedark.vim'
-" set termguicolors     " enable true colors support
-let ayucolor="dark"   " for dark version of theme
-
-Plug 'wojciechkepka/vim-github-dark'
 Plug 'andweeb/presence.nvim'
 Plug 'karb94/neoscroll.nvim'
-" Plug 'vim-airline/vim-airline'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
-Plug 'vim-latex/vim-latex'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " Required:
@@ -95,4 +90,39 @@ set relativenumber
 set splitright splitbelow
 
 syntax on
-colorscheme ayu
+set laststatus=0 ruler
+set background=dark
+colorscheme palenight
+let g:airline_theme = "palenight"
+let g:airline_powerline_fonts = 1
+
+if (has("nvim"))
+  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+
+"For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+"Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+" < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+if (has("termguicolors"))
+set termguicolors
+endif
+
+" General options
+let g:presence_auto_update         = 1
+let g:presence_neovim_image_text   = "The One True Text Editor"
+let g:presence_main_image          = "file"
+let g:presence_client_id           = "793271441293967371"
+let g:presence_debounce_timeout    = 10
+let g:presence_enable_line_number  = 0
+let g:presence_blacklist           = []
+let g:presence_buttons             = 0
+
+" Rich Presence text options
+let g:presence_editing_text        = "Editing %s"
+let g:presence_file_explorer_text  = "Browsing %s"
+let g:presence_git_commit_text     = "Committing changes"
+let g:presence_plugin_manager_text = "Managing plugins"
+let g:presence_reading_text        = "Reading %s"
+let g:presence_workspace_text      = "Working on %s"
+let g:presence_line_number_text    = "Line %s out of %s"
