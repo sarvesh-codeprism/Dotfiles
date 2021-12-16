@@ -278,7 +278,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 #################                          applications keyboard shortcuts                          #################
 #####################################################################################################################
 
-bindsym $mod+Return exec --no-startup-id alacritty;focus
+bindsym $mod+Return exec --no-startup-id st;focus
 
 bindsym control+mod1+u exec --no-startup-id pavucontrol
 
@@ -417,7 +417,7 @@ exec_always --no-startup-id ~/.config/i3/scripts/mouse.sh
 bar {
    	height 20
 	position top 
-    	font pango:Source Code Pro Black 9
+    	font pango:Operator Mono Medium 10
 	status_command i3status
     	tray_padding 1
     	strip_workspace_numbers yes
